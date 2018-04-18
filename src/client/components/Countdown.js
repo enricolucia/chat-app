@@ -22,6 +22,10 @@ class Countdown extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    clearInterval(this.interval)
+  }
+
   updateTimer () {
     const newTime = this.state.time - 1
     this.setState({ time: newTime })
@@ -54,7 +58,7 @@ class Countdown extends React.Component {
 
   render () {
     return (
-      <span>{this.processMessage()}</span>
+      <span>🕐 {this.processMessage()} 🕐</span>
     )
   }
 }
