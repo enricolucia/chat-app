@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Message from './message'
+import Messages from './messages'
 import MessageForm from './messageForm'
 import styled from 'styled-components'
 
@@ -18,9 +18,13 @@ class ChatView extends Component {
   render () {
     return (
       <ChatContainer>
-        <Message data={{
+        <Messages messages={[{
+          id: 0,
           content: 'Lorem ipsum'
-        }} />
+        }, {
+          id: 1,
+          content: 'Lorekkkm ipsum'
+        }]} />
         <MessageForm />
       </ChatContainer>
     )
