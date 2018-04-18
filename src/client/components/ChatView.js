@@ -16,15 +16,10 @@ const ChatContainer = styled.div`
 
 class ChatView extends Component {
   render () {
+    const { messages } = this.props
     return (
       <ChatContainer>
-        <Messages messages={[{
-          id: 0,
-          content: 'Lorem ipsum'
-        }, {
-          id: 1,
-          content: 'Lorekkkm ipsum'
-        }]} />
+        <Messages messages={messages} />
         <MessageForm />
       </ChatContainer>
     )
@@ -32,7 +27,8 @@ class ChatView extends Component {
 }
 
 ChatView.propTypes = {
-  myId: PropTypes.string
+  myId: PropTypes.string,
+  messages: PropTypes.array
 }
 
 export default ChatView
