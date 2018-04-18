@@ -1,9 +1,31 @@
 import React from 'react'
 import { darken } from 'polished'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const yourBubblePrimary = '#329cd4'
 const myBubblePrimary = '#AFFFC9'
+
+const slideInFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`
+
+const slideInFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`
 
 const StyledMessage = styled.div`
   padding: 8px;
@@ -13,6 +35,10 @@ const StyledMessage = styled.div`
   border-style: solid;
   border-width: 1px 0 1px;
   max-width: 70%;
+  animation: ${props => props.data.own
+    ? slideInFromRight
+    : slideInFromLeft
+  } 0.2s linear;
 
   :before {
     content: '';
