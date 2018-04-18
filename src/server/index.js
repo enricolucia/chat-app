@@ -47,6 +47,10 @@ io.on('connection', function (socket) {
 
   socket.on('user:interact', function (payload) {
     // emit actions to other user(s)
-    console.log(payload)
+    connections.forEach(connectedSocket => {
+      if (connectedSocket !== socket) {
+        connectedSocket.emit('user:interact', payload)
+      }
+    })
   })
 })
