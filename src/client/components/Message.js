@@ -41,7 +41,9 @@ const StyledMessage = styled.div`
     : slideInFromLeft
   } 0.2s linear;
   ${props => props.data.highlighted && `font-size: 110%;`}
+  ${props => props.data.faded && `opacity: 0.1;`}
   ${props => props.data.think && `color: ${darkGrey};`}
+
 
   :before {
     content: '';

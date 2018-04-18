@@ -4,12 +4,23 @@ import {
   NEW_MESSAGE,
   SET_NICK,
   SET_TYPING,
-  RESET_TYPING
+  RESET_TYPING,
+  FADE_LAST
 } from '../constants'
 
 export const defaultState = {
   myId: null,
-  messages: []
+  messages: [],
+  myNick: null,
+  friendNick: null,
+  isTyping: false
+}
+
+export const getLastIndex = (messages, id) => {
+  for (let i = messages.length - 1; i >= 0; --i) {
+    if (messages[i].sender === id) return i
+  }
+  return null
 }
 
 const reducer = (state = defaultState, action) => {
@@ -24,6 +35,20 @@ const reducer = (state = defaultState, action) => {
         messages: [
           ...state.messages,
           newMessage
+        ]
+      })
+
+    case FADE_LAST:
+      if (!state.messages.length) return state
+
+      const fadeIndex = getLastIndex(state.messages, action.payload.id)
+      if (fadeIndex === null) return state
+
+      return Object.assign({}, state, {
+        messages: [
+          ...state.messages.slice(0, fadeIndex),
+          Object.assign({}, state.messages[fadeIndex], {faded: true}),
+          ...state.messages.slice(fadeIndex + 1)
         ]
       })
 

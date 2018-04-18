@@ -46,6 +46,8 @@ export const thinkMessage = ({ content, id }) => (
   newMessage({ content, id, think: true })
 )
 
+export const fadeLast = (payload) => ({ type: FADE_LAST, payload, emit: true })
+
 export const setNick = (payload) => ({ type: SET_NICK, payload, emit: true })
 
 export const setTyping = (payload) => ({
@@ -62,6 +64,7 @@ export const resetTyping = (payload) => ({
 
 const mappedActions = {
   [CMD_NICK]: setNick,
+  [CMD_FADE_LAST]: fadeLast,
   [CMD_THINK]: thinkMessage,
   [CMD_TYPING]: setTyping,
   [CMD_NOT_TYPING]: resetTyping,
