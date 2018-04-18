@@ -14,6 +14,13 @@ const ChatContainer = styled.div`
   background: #dbe1ee;
 `
 
+const FriendState = styled.div`
+  padding: 5px;
+  flex: 1;
+  background: #275677;
+  color: #FFFFFF;
+`
+
 class ChatView extends Component {
   constructor (props) {
     super(props)
@@ -25,9 +32,12 @@ class ChatView extends Component {
   }
 
   render () {
-    const { messages } = this.props
+    const { isTyping, messages } = this.props
     return (
       <ChatContainer>
+        <FriendState>
+          {isTyping && <i>is typing...</i>}
+        </FriendState>
         <Messages messages={messages} />
         <MessageForm onInteraction={this.onInteraction} />
       </ChatContainer>
@@ -37,7 +47,8 @@ class ChatView extends Component {
 
 ChatView.propTypes = {
   myId: PropTypes.string,
-  messages: PropTypes.array
+  messages: PropTypes.array,
+  isTyping: PropTypes.bool
 }
 
 export default ChatView

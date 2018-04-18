@@ -6,7 +6,8 @@ import { dispatchText } from '../actions'
 const mapStateToProps = (state) => {
   return {
     messages: state.messages,
-    myId: state.myId
+    myId: state.myId,
+    isTyping: state.isTyping
   }
 }
 
