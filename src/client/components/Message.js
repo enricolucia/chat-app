@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 
 const yourBubblePrimary = '#329cd4'
 const myBubblePrimary = '#AFFFC9'
+const darkGrey = '#A9A9A9'
 
 const slideInFromRight = keyframes`
   from {
@@ -40,6 +41,7 @@ const StyledMessage = styled.div`
     : slideInFromLeft
   } 0.2s linear;
   ${props => props.data.highlighted && `font-size: 110%;`}
+  ${props => props.data.think && `color: ${darkGrey};`}
 
   :before {
     content: '';
