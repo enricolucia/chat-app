@@ -1,8 +1,11 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import reducers, { defaultState } from './reducers'
+import initChat from './socket'
+
+const createStoreWithMiddleware = applyMiddleware()(createStore)
 
 const configureStore = (initialState) => {
-  const store = createStore(
+  const store = createStoreWithMiddleware(
     reducers,
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -13,6 +16,8 @@ const configureStore = (initialState) => {
       module.hot.accept()
     }
   }
+
+  initChat(store)
 
   return store
 }
