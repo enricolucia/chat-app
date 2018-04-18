@@ -19,14 +19,14 @@ $ npm run build:development
 $ npm run development
 ```
 
-For production environments...
+For production environment:
 
 ```sh
 $ npm run build
 $ npm start
 ```
 
-Just open your browser to http://localhost:3000 with two difference browser instances.
+Just open your browser to http://localhost:3000 with two difference instances.
 
 ### Testing
 
