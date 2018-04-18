@@ -4,7 +4,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledMessages = styled.div`
-
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `
 
 class Messages extends Component {
