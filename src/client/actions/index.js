@@ -11,11 +11,13 @@ import {
 export const setId = (payload) => ({ type: SET_ID, payload })
 
 export const newMessage = ({
-  content
+  content,
+  id
 }) => ({
   type: NEW_MESSAGE,
   emit: true,
   payload: {
+    sender: id,
     content
   }
 })
