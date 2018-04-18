@@ -7,7 +7,8 @@
     "build": "babel ./src/server --out-file server.js && webpack --config webpack.config.js",
     "start": "NODE_ENV=production DIST_PATH=./build node server",
     "development": "NODE_ENV=development node server",
-    "test": "jest"
+    "test": "jest",
+    "prepush": "yarn test"
   },
   "license": "MIT",
   "dependencies": {
@@ -37,6 +38,7 @@
     "babel-plugin-styled-components": "^1.5.1",
     "enzyme": "^2.8.2",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
     "react-test-renderer": "^15.5.4",
     "webpack": "^2.5.0",
