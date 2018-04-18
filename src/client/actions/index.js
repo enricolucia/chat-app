@@ -46,6 +46,10 @@ export const thinkMessage = ({ content, id }) => (
   newMessage({ content, id, think: true })
 )
 
+export const countdownMessage = ({ content, id }) => (
+  newMessage({ content, id, countdown: true })
+)
+
 export const fadeLast = (payload) => ({ type: FADE_LAST, payload, emit: true })
 
 export const setNick = (payload) => ({ type: SET_NICK, payload, emit: true })
@@ -75,6 +79,7 @@ const mappedActions = {
   [CMD_OOPS]: removeLastMessage,
   [CMD_TYPING]: setTyping,
   [CMD_NOT_TYPING]: resetTyping,
+  [CMD_COUNTDOWN]: countdownMessage,
   [CMD_HIGHLIGHT]: highlightMessage
 }
 

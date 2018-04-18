@@ -1,4 +1,5 @@
 import React from 'react'
+import Countdown from './Countdown'
 import { darken } from 'polished'
 import styled, { keyframes } from 'styled-components'
 
@@ -40,10 +41,10 @@ const StyledMessage = styled.div`
     ? slideInFromRight
     : slideInFromLeft
   } 0.2s linear;
+
   ${props => props.data.highlighted && `font-size: 110%;`}
   ${props => props.data.faded && `opacity: 0.1;`}
   ${props => props.data.think && `color: ${darkGrey};`}
-
 
   :before {
     content: '';
@@ -90,7 +91,10 @@ const StyledMessage = styled.div`
 const Message = ({ data, isCountdown }) => {
   return (
     <StyledMessage data={data}>
-      {data.content}
+      {isCountdown
+        ? <Countdown data={data} />
+        : data.content
+      }
     </StyledMessage>
   )
 }
