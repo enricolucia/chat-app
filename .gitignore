@@ -2,4 +2,5 @@
 **/build/*
 server.js
 yarn.lock
+.DS_Store
 **/npm-debug.log
