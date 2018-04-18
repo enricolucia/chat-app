@@ -38,4 +38,10 @@ io.on('connection', function (socket) {
   const userId = uuid()
 
   socket.emit('user:connect', { userId })
+
+  socket.on('disconnect', function () {
+    // User disconnected
+    const index = connections.indexOf(socket)
+    connections.splice(index, 1)
+  })
 })
