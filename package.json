@@ -2,7 +2,10 @@
   "name": "chat-app",
   "version": "0.0.1",
   "scripts": {
+    "clean": "rm -rf build build/bundle.js && rm server.js",
     "build:development": "NODE_ENV=development babel ./src/server --out-file server.js && webpack --config webpack.dev.config.js",
+    "build": "babel ./src/server --out-file server.js && webpack --config webpack.config.js",
+    "start": "NODE_ENV=production DIST_PATH=./build node server",
     "development": "NODE_ENV=development node server",
     "test": "jest"
   },
