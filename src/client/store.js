@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from 'redux'
 import reducers, { defaultState } from './reducers'
-import initChat from './socket'
+import initChat, { chatMiddleware } from './socket'
 
-const createStoreWithMiddleware = applyMiddleware()(createStore)
+const createStoreWithMiddleware = applyMiddleware(chatMiddleware)(createStore)
 
 const configureStore = (initialState) => {
   const store = createStoreWithMiddleware(

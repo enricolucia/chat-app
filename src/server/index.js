@@ -44,4 +44,9 @@ io.on('connection', function (socket) {
     const index = connections.indexOf(socket)
     connections.splice(index, 1)
   })
+
+  socket.on('user:interact', function (payload) {
+    // emit actions to other user(s)
+    console.log(payload)
+  })
 })

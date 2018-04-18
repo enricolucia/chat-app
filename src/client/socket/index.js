@@ -4,6 +4,22 @@ import {
 } from '../actions'
 
 let socket
+const emitPath = 'user:interact'
+
+export const chatMiddleware = (store) => {
+  return next => action => {
+    const result = next(action)
+
+    if (action.emit && socket) {
+      socket.emit(emitPath, {
+        ...result,
+        emit: false
+      })
+    }
+
+    return result
+  }
+}
 
 export default function (store) {
   socket = io()
