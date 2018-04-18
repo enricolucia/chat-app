@@ -8,6 +8,12 @@ const configureStore = (initialState) => {
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 
+  if (process.env.NODE_ENV === 'development') {
+    if (module.hot) {
+      module.hot.accept()
+    }
+  }
+
   return store
 }
 
