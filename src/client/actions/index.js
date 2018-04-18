@@ -3,7 +3,9 @@ import {
   NEW_MESSAGE,
   SET_TYPING,
   RESET_TYPING,
+  SET_NICK,
 
+  CMD_NICK,
   CMD_TYPING,
   CMD_NOT_TYPING
 } from '../constants'
@@ -22,6 +24,8 @@ export const newMessage = ({
   }
 })
 
+export const setNick = (payload) => ({ type: SET_NICK, payload, emit: true })
+
 export const setTyping = (payload) => ({
   type: SET_TYPING,
   emit: true,
@@ -35,6 +39,7 @@ export const resetTyping = (payload) => ({
 })
 
 const mappedActions = {
+  [CMD_NICK]: setNick,
   [CMD_TYPING]: setTyping,
   [CMD_NOT_TYPING]: resetTyping
 }

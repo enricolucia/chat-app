@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
   return {
     messages: state.messages,
     myId: state.myId,
-    isTyping: state.isTyping
+    isTyping: state.isTyping,
+    friendNick: state.friendNick
   }
 }
 

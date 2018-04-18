@@ -2,6 +2,7 @@ import uuid from 'uuid/v4'
 import {
   SET_ID,
   NEW_MESSAGE,
+  SET_NICK,
   SET_TYPING,
   RESET_TYPING
 } from '../constants'
@@ -25,6 +26,11 @@ const reducer = (state = defaultState, action) => {
           newMessage
         ]
       })
+
+    case SET_NICK:
+      const nickAllocation = action.payload.id === state.myId ? 'myNick' : 'friendNick'
+      return Object.assign({}, state, {[nickAllocation]: action.payload.content})
+
     case SET_TYPING:
       if (action.payload.id === state.myId) return state
 

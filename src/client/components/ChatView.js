@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Messages from './messages'
 import MessageForm from './messageForm'
+import Messages from './messages'
 import styled from 'styled-components'
 
 const ChatContainer = styled.div`
@@ -32,10 +32,11 @@ class ChatView extends Component {
   }
 
   render () {
-    const { isTyping, messages } = this.props
+    const { friendNick, isTyping, messages } = this.props
     return (
       <ChatContainer>
         <FriendState>
+          <b>{friendNick || 'Friend'}{' '}</b>
           {isTyping && <i>is typing...</i>}
         </FriendState>
         <Messages messages={messages} />
@@ -46,8 +47,10 @@ class ChatView extends Component {
 }
 
 ChatView.propTypes = {
-  myId: PropTypes.string,
+  dispatchText: PropTypes.func,
   messages: PropTypes.array,
+  myId: PropTypes.string,
+  friendNick: PropTypes.string,
   isTyping: PropTypes.bool
 }
 
