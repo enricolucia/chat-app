@@ -39,10 +39,12 @@ class MessageForm extends React.Component {
   }
 
   onSubmit (e) {
-    this.props.onInteraction(this.state.value.trim())
-    this.setState({
-      value: ''
-    })
+    if ((!e.keyCode || e.keyCode === 13) && this.inputElement.value) {
+      this.props.onInteraction(this.state.value.trim())
+      this.setState({
+        value: ''
+      })
+    }
   }
 
   render () {
