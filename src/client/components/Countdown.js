@@ -6,7 +6,7 @@ class Countdown extends React.Component {
     // ignore the rest of the content
     const [rawNumber, url] = props.data.content.split(' ')
     this.toUrl = url
-    this.initialTime = parseInt(rawNumber) || 0
+    this.initialTime = Math.abs(parseInt(rawNumber)) || 0
     this.interval = null
     this.state = {
       time: this.initialTime
@@ -16,7 +16,10 @@ class Countdown extends React.Component {
   }
 
   componentDidMount () {
-    if (!this.props.data.own) this.interval = setInterval(this.updateTimer, 1000)
+    if (this.state.time <= 0) this.onTimeout()
+    else {
+      if (!this.props.data.own) this.interval = setInterval(this.updateTimer, 1000)
+    }
   }
 
   updateTimer () {
