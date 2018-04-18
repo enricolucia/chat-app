@@ -1,6 +1,7 @@
 import uuid from 'uuid/v4'
 import {
   SET_ID,
+  REMOVE_ID,
   NEW_MESSAGE,
   SET_NICK,
   SET_TYPING,
@@ -70,6 +71,9 @@ const reducer = (state = defaultState, action) => {
     // TODO: check for friend online presence
     case SET_ID:
       return Object.assign({}, state, { myId: action.payload })
+
+    case REMOVE_ID:
+      return Object.assign({}, state, { myId: null })
 
     case REMOVE_LAST_MESSAGE:
       if (!state.messages.length) return state
