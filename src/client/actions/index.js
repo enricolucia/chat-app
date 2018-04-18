@@ -20,6 +20,7 @@ import {
 } from '../constants'
 
 export const setId = (payload) => ({ type: SET_ID, payload })
+
 export const removeId = (payload) => ({ type: FRIEND_DISCONNECT, payload })
 
 export const newMessage = ({
