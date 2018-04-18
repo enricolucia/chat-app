@@ -1,6 +1,6 @@
 export const NEW_MESSAGE = 'NEW_MESSAGE'
 export const SET_ID = 'SET_ID'
-export const REMOVE_ID = 'REMOVE_ID'
+export const FRIEND_DISCONNECT = 'FRIEND_DISCONNECT'
 export const REMOVE_LAST_MESSAGE = 'REMOVE_LAST_MESSAGE'
 export const SET_NICK = 'SET_NICK'
 export const SET_FRIEND_NICK = 'SET_FRIEND_NICK'

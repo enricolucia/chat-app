@@ -43,6 +43,11 @@ io.on('connection', function (socket) {
     // User disconnected
     const index = connections.indexOf(socket)
     connections.splice(index, 1)
+    connections.forEach(connectedSocket => {
+      if (connectedSocket !== socket) {
+        connectedSocket.emit('user:disconnect', { userId })
+      }
+    })
   })
 
   socket.on('user:interact', function (payload) {

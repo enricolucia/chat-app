@@ -3,7 +3,7 @@ import {
   NEW_MESSAGE,
   REMOVE_LAST_MESSAGE,
   SET_ID,
-  REMOVE_ID,
+  FRIEND_DISCONNECT,
   SET_NICK,
   SET_TYPING,
   RESET_TYPING,
@@ -20,7 +20,7 @@ import {
 } from '../constants'
 
 export const setId = (payload) => ({ type: SET_ID, payload })
-export const removeId = (payload) => ({ type: REMOVE_ID, payload })
+export const removeId = (payload) => ({ type: FRIEND_DISCONNECT, payload })
 
 export const newMessage = ({
   content,
