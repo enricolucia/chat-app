@@ -1,28 +1,46 @@
 import {
-  SET_ID,
+  // action constants
   NEW_MESSAGE,
+  REMOVE_LAST_MESSAGE,
+  SET_ID,
+  REMOVE_ID,
+  SET_NICK,
   SET_TYPING,
   RESET_TYPING,
-  SET_NICK,
-
+  FADE_LAST,
+  // short commands
+  CMD_OOPS,
   CMD_NICK,
+  CMD_FADE_LAST,
+  CMD_THINK,
   CMD_TYPING,
+  CMD_HIGHLIGHT,
+  CMD_COUNTDOWN,
   CMD_NOT_TYPING
 } from '../constants'
 
 export const setId = (payload) => ({ type: SET_ID, payload })
-
 export const newMessage = ({
   content,
-  id
+  id,
+  countdown = false,
+  highlighted = false,
+  think = false
 }) => ({
   type: NEW_MESSAGE,
   emit: true,
   payload: {
     sender: id,
-    content
+    countdown,
+    content,
+    highlighted,
+    think
   }
 })
+
+export const highlightMessage = ({ content, id }) => (
+  newMessage({ content, id, highlighted: true })
+)
 
 export const setNick = (payload) => ({ type: SET_NICK, payload, emit: true })
 
@@ -40,8 +58,13 @@ export const resetTyping = (payload) => ({
 
 const mappedActions = {
   [CMD_NICK]: setNick,
+  // [CMD_FADE_LAST]: fadeLast,
+  // [CMD_THINK]: thinkMessage,
+  // [CMD_OOPS]: removeLastMessage,
   [CMD_TYPING]: setTyping,
-  [CMD_NOT_TYPING]: resetTyping
+  [CMD_NOT_TYPING]: resetTyping,
+  // [CMD_COUNTDOWN]: countdownMessage,
+  [CMD_HIGHLIGHT]: highlightMessage
 }
 
 export const dispatchText = ({ content, id }) => {

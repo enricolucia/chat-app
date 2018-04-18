@@ -39,6 +39,7 @@ const StyledMessage = styled.div`
     ? slideInFromRight
     : slideInFromLeft
   } 0.2s linear;
+  ${props => props.data.highlighted && `font-size: 110%;`}
 
   :before {
     content: '';
@@ -49,7 +50,10 @@ const StyledMessage = styled.div`
   }
 
   ${props => props.data.own && `
-    background: ${myBubblePrimary}
+    background: ${props.data.highlighted
+      ? `${darken(0.1, myBubblePrimary)}`
+      : `${myBubblePrimary}`
+    }
     margin-left: auto;
     margin-right: 10px;
     border: 1px solid ${darken(0.1, myBubblePrimary)};
@@ -62,7 +66,10 @@ const StyledMessage = styled.div`
     }
   `}
   ${props => !props.data.own && `
-    background: ${yourBubblePrimary}
+    background: ${props.data.highlighted
+      ? `${darken(0.1, yourBubblePrimary)}`
+      : `${yourBubblePrimary}`
+    }
     margin-right: auto;
     margin-left: 10px;
     border: 1px solid ${darken(0.1, yourBubblePrimary)};
