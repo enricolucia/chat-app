@@ -62,10 +62,17 @@ export const resetTyping = (payload) => ({
   emit: true
 })
 
+export const removeLastMessage = (payload) => ({
+  type: REMOVE_LAST_MESSAGE,
+  emit: true,
+  payload
+})
+
 const mappedActions = {
   [CMD_NICK]: setNick,
   [CMD_FADE_LAST]: fadeLast,
   [CMD_THINK]: thinkMessage,
+  [CMD_OOPS]: removeLastMessage,
   [CMD_TYPING]: setTyping,
   [CMD_NOT_TYPING]: resetTyping,
   [CMD_HIGHLIGHT]: highlightMessage

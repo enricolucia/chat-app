@@ -5,7 +5,8 @@ import {
   SET_NICK,
   SET_TYPING,
   RESET_TYPING,
-  FADE_LAST
+  FADE_LAST,
+  REMOVE_LAST_MESSAGE
 } from '../constants'
 
 export const defaultState = {
@@ -69,6 +70,17 @@ const reducer = (state = defaultState, action) => {
     // TODO: check for friend online presence
     case SET_ID:
       return Object.assign({}, state, { myId: action.payload })
+
+    case REMOVE_LAST_MESSAGE:
+      if (!state.messages.length) return state
+      const removeIndex = getLastIndex(state.messages, action.payload.id)
+      if (removeIndex === null) return state
+
+      return Object.assign({}, state, {
+        messages: state.messages.slice(0, removeIndex).concat(
+          state.messages.slice(removeIndex + 1)
+        )
+      })
 
     default:
       return state
