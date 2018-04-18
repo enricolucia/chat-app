@@ -1,7 +1,9 @@
 import uuid from 'uuid/v4'
 import {
   SET_ID,
-  NEW_MESSAGE
+  NEW_MESSAGE,
+  SET_TYPING,
+  RESET_TYPING
 } from '../constants'
 
 export const defaultState = {
@@ -23,6 +25,15 @@ const reducer = (state = defaultState, action) => {
           newMessage
         ]
       })
+    case SET_TYPING:
+      if (action.payload.id === state.myId) return state
+
+      return Object.assign({}, state, { isTyping: true })
+
+    case RESET_TYPING:
+      if (action.payload.id === state.myId) return state
+
+      return Object.assign({}, state, { isTyping: false })
 
     // TODO: check for friend online presence
     case SET_ID:

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { CMD_TYPING, CMD_NOT_TYPING } from '../constants'
 
 const FormContainer = styled.div`
   display: flex;
@@ -33,6 +34,9 @@ class MessageForm extends React.Component {
   }
 
   onChange () {
+    this.inputElement.value
+    ? this.props.onInteraction(CMD_TYPING)
+    : this.props.onInteraction(CMD_NOT_TYPING)
     this.setState({
       value: this.inputElement.value
     })
