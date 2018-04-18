@@ -1,6 +1,7 @@
 import io from 'socket.io-client'
 import {
-  setId
+  setId,
+  removeId
 } from '../actions'
 
 let socket
@@ -31,5 +32,10 @@ export default function (store) {
 
   socket.on('user:interact', data => {
     store.dispatch(data)
+  })
+
+  // TODO: dispatch for user offline
+  socket.on('user:disconnect', data => {
+    store.dispatch(removeId(data.userId))
   })
 }

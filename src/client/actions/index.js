@@ -20,6 +20,8 @@ import {
 } from '../constants'
 
 export const setId = (payload) => ({ type: SET_ID, payload })
+export const removeId = (payload) => ({ type: REMOVE_ID, payload })
+
 export const newMessage = ({
   content,
   id,
