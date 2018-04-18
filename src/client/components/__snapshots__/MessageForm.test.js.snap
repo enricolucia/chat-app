@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageForm renders message from 1`] = `
+<div
+  className="MessageForm__FormContainer-jGJyiO bzhYoL"
+>
+  <input
+    className="MessageForm__StyledInput-ldUKTA hfglTZ"
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    className="MessageForm__StyledButton-gFwgwZ dVRzac"
+    onClick={[Function]}
+  >
+    ⇪
+  </button>
+</div>
+`;

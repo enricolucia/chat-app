@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message renders with a countdown content 1`] = `
+<div
+  className="Message__StyledMessage-ktMMqk dHPFVv"
+  data={
+    Object {
+      "content": "Lorem ipsum",
+      "countdown": false,
+      "highlighted": false,
+      "own": true,
+      "think": false,
+    }
+  }
+>
+  Lorem ipsum
+</div>
+`;
+
+exports[`Message renders with a plain content 1`] = `
+<div
+  className="Message__StyledMessage-ktMMqk dHPFVv"
+  data={
+    Object {
+      "content": "Lorem ipsum",
+      "countdown": false,
+      "highlighted": false,
+      "own": true,
+      "think": false,
+    }
+  }
+>
+  Lorem ipsum
+</div>
+`;

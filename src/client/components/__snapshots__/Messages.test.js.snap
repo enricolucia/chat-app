@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Messages renders list of messages 1`] = `
+<div
+  className="Messages__StyledMessages-fVsryA hmhJma"
+>
+  <div
+    className="Message__StyledMessage-ktMMqk bhouUx"
+    data={
+      Object {
+        "data": Object {
+          "content": "Lorem ipsum",
+          "countdown": false,
+          "highlighted": false,
+          "own": true,
+          "think": false,
+        },
+        "id": "0",
+      }
+    }
+  />
+  <div
+    className="Message__StyledMessage-ktMMqk bhouUx"
+    data={
+      Object {
+        "data": Object {
+          "content": "Donor semper",
+          "countdown": false,
+          "highlighted": false,
+          "own": false,
+          "think": false,
+        },
+        "id": "1",
+      }
+    }
+  />
+</div>
+`;
