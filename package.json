@@ -1,0 +1,23 @@
+{
+  "name": "chat-app",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.)test)\\.js$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/(build|node_modules)/"
+    ],
+    "testEnvironment": "jsdom"
+  }
+}
