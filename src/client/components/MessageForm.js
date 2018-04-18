@@ -47,7 +47,7 @@ class MessageForm extends React.Component {
       this.props.onInteraction(this.state.value.trim())
       this.setState({
         value: ''
-      })
+      }, () => this.props.onInteraction(CMD_NOT_TYPING))
     }
   }
 
