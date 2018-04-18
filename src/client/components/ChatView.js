@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import MessageForm from './messageForm'
 import styled from 'styled-components'
 
 const ChatContainer = styled.div`
@@ -14,10 +15,9 @@ const ChatContainer = styled.div`
 
 class ChatView extends Component {
   render () {
-    const { myId } = this.props
     return (
       <ChatContainer>
-        {myId}
+        <MessageForm />
       </ChatContainer>
     )
   }
