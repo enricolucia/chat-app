@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import MessageForm from './messageForm'
 import Messages from './messages'
 import styled from 'styled-components'
+import { parseEmoji } from '../utils'
 
 const ChatContainer = styled.div`
   height: 100vh;
@@ -28,6 +29,7 @@ class ChatView extends Component {
   }
 
   onInteraction (content) {
+    content = parseEmoji(content)
     this.props.dispatchText({ content, id: this.props.myId })
   }
 
