@@ -28,4 +28,8 @@ export default function (store) {
   socket.on('user:connect', data => {
     store.dispatch(setId(data.userId))
   })
+
+  socket.on('user:interact', data => {
+    store.dispatch(data)
+  })
 }
