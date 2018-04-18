@@ -15,12 +15,21 @@ const ChatContainer = styled.div`
 `
 
 class ChatView extends Component {
+  constructor (props) {
+    super(props)
+    this.onInteraction = this.onInteraction.bind(this)
+  }
+
+  onInteraction (content) {
+    this.props.dispatchText({ content, id: this.props.myId })
+  }
+
   render () {
     const { messages } = this.props
     return (
       <ChatContainer>
         <Messages messages={messages} />
-        <MessageForm />
+        <MessageForm onInteraction={this.onInteraction} />
       </ChatContainer>
     )
   }
