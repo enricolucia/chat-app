@@ -17,6 +17,18 @@ const StyledMessage = styled.div`
   max-width: 70%;
   margin-left: auto;
   margin-right: 10px;
+
+  :before {
+    content: '';
+    position: absolute;
+    display: block;
+    border-width: 6px 0 6px 10px;
+    border-color: transparent ${myBubblePrimary};
+    right: -11px;
+    bottom: 2px;
+    z-index: 1;
+    border-style: solid;
+  }
 }`
 
 const Message = ({ data }) => {
