@@ -13,6 +13,12 @@ const StyledMessages = styled.div`
 `
 
 class Messages extends Component {
+  componentDidUpdate (prevProps) {
+    if (prevProps.messages.length !== this.props.messages.length) {
+      this.messagesWrapper.scrollTop = this.messagesWrapper.scrollHeight
+    }
+  }
+
   render () {
     const { messages } = this.props
     return (
